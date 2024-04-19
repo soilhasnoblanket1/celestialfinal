@@ -1,0 +1,36 @@
+nav {
+  background-color: #5b3b8c;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  outline: 2px white;
+  transition:
+    outline-color 0.2s ease,
+    outline-width 0.2s ease;
+}
+
+nav a:hover {
+  outline-color: black;
+  outline-width: 4px;
+}
+
+@media screen and (max-width: 600px) {
+  nav a {
+    padding: 14px 10px;
+  }
+}

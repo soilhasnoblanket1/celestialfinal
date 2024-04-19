@@ -1,0 +1,49 @@
+              <!DOCTYPE html>
+              <html lang="en">
+              <head>
+                  <meta charset="UTF-8">
+                  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                  <title>Admin Panel</title>
+                  <link rel="stylesheet" type="text/css" href="/stylesAdmin.css">
+              </head>
+              <body>
+                  <div class="container">
+                      <h1>Admin Page</h1>
+                      <ul>
+                          <% confessions.slice().reverse().forEach((confession, index) => { %>
+                              <li>
+                                  <div class="confession-box" onclick="copyConfessionText(this)">
+                                      <strong><%= confession.confession %></strong>
+                                  </div>
+                                  <br>
+                                  <div class="object-code-container">
+                                    <span><strong>Object Code:</strong> <%= confession._id %></span>
+                                    <form method="POST" action="/api/delete/<%= confession._id %>">
+                                      <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to delete this confession?')">Delete</button>
+                                    </form>
+                                  </div>
+                                </li>
+                          <% }); %>
+                      </ul>
+                  </div>
+
+                  <div class="overlay" id="overlay">Copied to Clipboard</div>
+
+                  <script>
+                      function copyConfessionText(element) {
+                          const confessionText = element.innerText;
+                          navigator.clipboard.writeText(confessionText)
+                             .then(() => {
+                                  document.getElementById('overlay').style.display = 'block';
+                                  setTimeout(() => {
+                                      document.getElementById('overlay').style.display = 'none';
+                                  }, 2000);
+                              })
+                             .catch(err => {
+                                  console.error('Failed to copy: ', err);
+                              });
+                      }
+                  </script>
+              </body>
+              </html>

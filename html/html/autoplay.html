@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auto Playing Video</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .speech {
+            position: absolute;
+            bottom: 1%;
+            font-size: 1.5em;
+            color: black;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+  <IFRAME SRC="https://www.mp4upload.com/embed-oj6yxxnp3fio.html" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO WIDTH=992 HEIGHT=744 allowfullscreen></IFRAME>
+    <div class="speech">Bahun mula</div>
+</body>
+
+  <button id="playsound">Play</button>
+  <audio id="sound" src= "/assets/americaya.mp3"> </audio>
+
+<script>
+      const playButton = document.getElementById('playsound');
+      const soundEffect = document.getElementById('sound');
+      playButton.addEventListener('click', () => {
+          soundEffect.play();
+      });
+  </script>
+</html>
